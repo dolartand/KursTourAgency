@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.LoginController">
+    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+        <Label text="Авторизация">
+            <font>
+                <Font size="24.0" />
+            </font>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </Label>
+        <Label text="Выберите тип аккаунта">
+            <VBox.margin>
+                <Insets right="150.0" top="30.0" />
+            </VBox.margin>
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <ChoiceBox fx:id="accountType_box" prefWidth="150.0">
+            <VBox.margin>
+                <Insets right="150.0" top="10.0" />
+            </VBox.margin>
+        </ChoiceBox>
+        <Label text="Логин">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <VBox.margin>
+                <Insets right="255.0" top="60.0" />
+            </VBox.margin>
+        </Label>
+        <TextField fx:id="login_txt">
+            <VBox.margin>
+                <Insets left="20.0" right="20.0" top="10.0" />
+            </VBox.margin>
+        </TextField>
+        <Label text="Пароль">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <VBox.margin>
+                <Insets right="250.0" top="10.0" />
+            </VBox.margin>
+        </Label>
+        <PasswordField fx:id="password_txt">
+            <VBox.margin>
+                <Insets left="20.0" right="20.0" top="10.0" />
+            </VBox.margin>
+        </PasswordField>
+        <Button fx:id="logIn_btn" mnemonicParsing="false" onAction="#handleLogin" prefWidth="100.0" text="Войти">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <VBox.margin>
+                <Insets top="60.0" />
+            </VBox.margin>
+        </Button>
+        <Label fx:id="registration_lbl" onMouseClicked="#handleRegistration" text="Ещё нет аккаунта? Зарегистрироваться" textFill="#0000ee" underline="true">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+        </Label>
+    </VBox>
+</AnchorPane>
