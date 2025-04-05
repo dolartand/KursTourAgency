@@ -35,7 +35,7 @@ public class LoginController implements Initializable {
 
     private void openRegistrationWindow() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/Views/Registration.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Registration.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.load()));
             stage.show();
@@ -47,9 +47,17 @@ public class LoginController implements Initializable {
     @FXML
     private void handleLogin(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/Views/Main.fxml"));
+            FXMLLoader loader;
+            if (accountType_box.getSelectionModel().getSelectedItem().equals("Админ")) {
+                loader = new FXMLLoader(getClass().getResource("/com/client/AdminViews/Main.fxml"));
+            }
+            else {
+                loader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Main.fxml"));
+
+            }
+
             Stage stage = new Stage();
-            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.setScene(new Scene(loader.load()));
             stage.show();
 
             Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -61,6 +69,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        accountType_box.getItems().addAll("Admin", "Client");
+        accountType_box.getItems().addAll("Админ", "Клиент");
     }
 }

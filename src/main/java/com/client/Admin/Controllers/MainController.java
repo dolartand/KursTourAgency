@@ -1,4 +1,4 @@
-package com.client.Controllers;
+package com.client.Admin.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,17 +16,30 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     @FXML
-    private Button tour_btn;
+    private Pane contentArea;
     @FXML
-    private Button booking_btn;
+    private Button tours_btn;
     @FXML
-    private Button history_btn;
+    private Button bookings_btn;
     @FXML
-    private Button profile_btn;
+    private Button users_btn;
     @FXML
     private Button logOut_btn;
+
     @FXML
-    private Pane contentArea;
+    private void handleTours(ActionEvent actionEvent) {
+        loadView("ToursView.fxml");
+    }
+
+    @FXML
+    private void handleBookings(ActionEvent actionEvent) {
+        loadView("BookingView.fxml");
+    }
+
+    @FXML
+    private void handleUsers(ActionEvent actionEvent) {
+        loadView("UsersView.fxml");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,33 +48,13 @@ public class MainController implements Initializable {
 
     private void loadView(String fxml) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/UserViews/" + fxml));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/AdminViews/" + fxml));
             Pane newView = fxmlLoader.load();
             contentArea.getChildren().setAll(newView);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @FXML
-    private void handleTour(ActionEvent actionEvent) {
-        loadView("ToursView.fxml");
-    }
-
-    @FXML
-    private void handleBooking(ActionEvent actionEvent) {
-        loadView("BookingView.fxml");
-    }
-
-    @FXML
-    private void handleHistory(ActionEvent actionEvent) {
-        loadView("TourHistoryView.fxml");
-    }
-
-    @FXML
-    private void handleProfile(ActionEvent actionEvent) {
-        loadView("ProfileView.fxml");
     }
 
     @FXML

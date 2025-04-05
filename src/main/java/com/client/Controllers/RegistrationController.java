@@ -35,7 +35,7 @@ public class RegistrationController {
 
     private void openLoginWindow() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/Views/Login.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Login.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.load()));
             stage.show();
@@ -47,7 +47,7 @@ public class RegistrationController {
     @FXML
     private void handleRegistration(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/Views/Main.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Main.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.load()));
             stage.show();
