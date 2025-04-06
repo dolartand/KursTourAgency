@@ -1,5 +1,10 @@
 package com.client.Controllers;
 
+import com.client.Service.AuthService;
+import com.kurs.alerts.AlertFactory;
+import com.kurs.dto.LoginResponse;
+import com.kurs.exceptions.BlankFieldsException;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,11 +31,23 @@ public class LoginController implements Initializable {
     @FXML
     private Label registration_lbl;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        accountType_box.getItems().addAll("Админ", "Клиент");
+        accountType_box.setValue("Клиент");
+    }
+
     @FXML
     private void handleRegistration(MouseEvent actionEvent) {
         openRegistrationWindow();
         Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         currentStage.close();
+    }
+
+    private void checkFields() {
+        if (login_txt.getText().isEmpty() || password_txt.getText().isEmpty()) {
+            throw new BlankFieldsException();
+        }
     }
 
     private void openRegistrationWindow() {
@@ -47,28 +64,62 @@ public class LoginController implements Initializable {
     @FXML
     private void handleLogin(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader;
-            if (accountType_box.getSelectionModel().getSelectedItem().equals("Админ")) {
-                loader = new FXMLLoader(getClass().getResource("/com/client/AdminViews/Main.fxml"));
-            }
-            else {
-                loader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Main.fxml"));
-
-            }
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(loader.load()));
-            stage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            checkFields();
+        } catch (BlankFieldsException e) {
+            Alert alert = AlertFactory.showErrorAlert(e.getMessage());
+            alert.showAndWait();
         }
+
+        Task<LoginResponse> loginTask = new Task<>() {
+          @Override
+          protected LoginResponse call() throws Exception {
+              AuthService authService = new AuthService();
+               return authService.login(getLogin(), getPassword(), getAccountType());
+          }
+        };
+
+        loginTask.setOnSucceeded(e -> {
+            LoginResponse resp = loginTask.getValue();
+            if (resp.isSuccess()) {
+                try {
+                    FXMLLoader loader;
+                    if (accountType_box.getSelectionModel().getSelectedItem().equals("Админ")) {
+                        loader = new FXMLLoader(getClass().getResource("/com/client/AdminViews/Main.fxml"));
+                    }
+                    else {
+                        loader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Main.fxml"));
+                    }
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(loader.load()));
+                    stage.show();
+
+                    Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                    currentStage.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                Alert alert = AlertFactory.showErrorAlert("Неверный логин или пароль");
+                alert.showAndWait();
+            }
+        });
+        loginTask.setOnFailed(e -> {
+            Alert alert = AlertFactory.showErrorAlert("Соединение с сервером не установлено");
+            alert.showAndWait();
+        });
+
+        new Thread(loginTask).start();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        accountType_box.getItems().addAll("Админ", "Клиент");
+    public String getLogin() {
+        return login_txt.getText();
+    }
+
+    public String getPassword() {
+        return password_txt.getText();
+    }
+
+    public String getAccountType() {
+        return accountType_box.getValue();
     }
 }
