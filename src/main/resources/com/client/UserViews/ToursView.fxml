@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.ToursController">
    <HBox layoutX="11.2" layoutY="71.2" prefHeight="90.0" prefWidth="579.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
       <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
          <HBox.margin>
@@ -51,7 +51,7 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <TextField fx:id="nidhts_txt">
+         <TextField fx:id="nights_txt">
             <font>
                <Font size="14.0" />
             </font>
@@ -74,7 +74,7 @@
       </VBox>
    </HBox>
    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="170.0">
-      <VBox fx:id="min_price_txt" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
+      <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
          <HBox.margin>
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </HBox.margin>
@@ -83,7 +83,7 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <TextField>
+         <TextField fx:id="min_price_txt">
             <font>
                <Font size="14.0" />
             </font>
@@ -119,7 +119,7 @@
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
          </HBox.margin>
-         <Button fx:id="find_btn" mnemonicParsing="false" text="Найти туры">
+         <Button fx:id="find_btn" mnemonicParsing="false" text="Найти туры" onAction="#findTours">
             <VBox.margin>
                <Insets />
             </VBox.margin>
@@ -131,8 +131,9 @@
    </HBox>
    <TableView fx:id="table_tours" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="270.0">
       <columns>
-         <TableColumn prefWidth="75.0" text="C1" />
-         <TableColumn prefWidth="75.0" text="C2" />
+         <TableColumn fx:id="title_column" prefWidth="250.0" text="Название"/>
+         <TableColumn fx:id="price_column" prefWidth="100.0" text="Цена"/>
+         <TableColumn fx:id="action_column" prefWidth="150.0" text="Действие"/>
       </columns>
    </TableView>
    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Поиск туров" AnchorPane.topAnchor="10.0">

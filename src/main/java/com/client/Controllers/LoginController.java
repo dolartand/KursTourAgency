@@ -1,6 +1,7 @@
 package com.client.Controllers;
 
 import com.client.Service.AuthService;
+import com.client.SessionHolder;
 import com.kurs.alerts.AlertFactory;
 import com.kurs.dto.LoginResponse;
 import com.kurs.exceptions.BlankFieldsException;
@@ -74,13 +75,15 @@ public class LoginController implements Initializable {
           @Override
           protected LoginResponse call() throws Exception {
               AuthService authService = new AuthService();
-               return authService.login(getLogin(), getPassword(), getAccountType());
+              return authService.login(getLogin(), getPassword(), getAccountType());
           }
         };
 
         loginTask.setOnSucceeded(e -> {
             LoginResponse resp = loginTask.getValue();
             if (resp.isSuccess()) {
+                String sessionId = resp.getMessage();
+                SessionHolder.setSessionId(sessionId);
                 try {
                     FXMLLoader loader;
                     if (accountType_box.getSelectionModel().getSelectedItem().equals("Админ")) {

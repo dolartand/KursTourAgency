@@ -1,14 +1,17 @@
 package com.client.Controllers;
 
+import com.client.Service.RegistrationService;
+import com.client.SessionHolder;
+import com.kurs.alerts.AlertFactory;
+import com.kurs.dto.RegistrationResponse;
+import com.kurs.exceptions.BlankFieldsException;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -44,18 +47,67 @@ public class RegistrationController {
         }
     }
 
+    private void checkFields() {
+        if (name_txt.getText().isEmpty() || login_txt.getText().isEmpty() || password_txt.getText().isEmpty()) {
+            throw new BlankFieldsException();
+        }
+    }
+
     @FXML
     private void handleRegistration(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Main.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            checkFields();
+        } catch (BlankFieldsException e) {
+            Alert alert = AlertFactory.showErrorAlert(e.getMessage());
+            alert.showAndWait();
         }
+
+        Task<RegistrationResponse> registrationTask = new Task<>() {
+            @Override
+            protected RegistrationResponse call() throws Exception {
+                RegistrationService reg = new RegistrationService();
+                return reg.registration(getName(), getLogin(), getPassword());
+            }
+        };
+
+        registrationTask.setOnSucceeded(event -> {
+           RegistrationResponse response = registrationTask.getValue();
+           if (response.isSuccess()) {
+               String sessionId = response.getMessage();
+               SessionHolder.setSessionId(sessionId);
+               try {
+                   FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Main.fxml"));
+                   Stage stage = new Stage();
+                   stage.setScene(new Scene(fxmlLoader.load()));
+                   stage.show();
+
+                   Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                   currentStage.close();
+               } catch (IOException e) {
+                   e.printStackTrace();
+               }
+           } else {
+               Alert alert = AlertFactory.showErrorAlert("Недопустимые данные для регистрации!");
+               alert.showAndWait();
+           }
+        });
+        registrationTask.setOnFailed(event -> {
+            Alert alert = AlertFactory.showErrorAlert("Соединение с сервером не установлено");
+            alert.showAndWait();
+        });
+
+        new Thread(registrationTask).start();
+    }
+
+    private String getName() {
+        return name_txt.getText();
+    }
+
+    private String getLogin() {
+        return login_txt.getText();
+    }
+
+    private String getPassword() {
+        return password_txt.getText();
     }
 }
