@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -42,6 +43,14 @@ public class ToursController implements Initializable {
     @FXML
     private TableColumn<TourDTO, String> title_column;
     @FXML
+    private TableColumn<TourDTO, String> country_column;
+    @FXML
+    private TableColumn<TourDTO, LocalDate> startDate_column;
+    @FXML
+    private TableColumn<TourDTO, Double> nights_column;
+    @FXML
+    private TableColumn<TourDTO, String> food_column;
+    @FXML
     private TableColumn<TourDTO, Double> price_column;
     @FXML
     private TableColumn<TourDTO, Void> action_column;
@@ -51,12 +60,15 @@ public class ToursController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         title_column.setCellValueFactory(new PropertyValueFactory<>("title"));
+        country_column.setCellValueFactory(new PropertyValueFactory<>("country"));
+        startDate_column.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        nights_column.setCellValueFactory(new PropertyValueFactory<>("nights"));
+        food_column.setCellValueFactory(new PropertyValueFactory<>("food"));
         price_column.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         addButtonToTable();
 
         food_box.getItems().addAll("Завтрак", "Обед", "Ужин", "Все включено");
-        food_box.setValue("Все включено");
     }
 
     private void addButtonToTable() {
@@ -94,21 +106,30 @@ public class ToursController implements Initializable {
         Task<List<TourDTO>> task = new Task<>() {
             @Override
             protected List<TourDTO> call() throws Exception {
-                String country = country_txt.getText();
-                double minPrice = Double.parseDouble(min_price_txt.getText());
-                double maxPrice = Double.parseDouble(max_price_txt.getText());
-                TourRequest req = new TourRequest(country, minPrice, maxPrice);
+                String country = country_txt.getText().trim();
+                LocalDate startDate = tour_date.getValue();
+                Integer nights = (nights_txt.getText().trim().isEmpty()) ? null : Integer.parseInt(nights_txt.getText().trim());
+                Double minPrice = (min_price_txt.getText().trim().isEmpty()) ? null : Double.parseDouble(min_price_txt.getText().trim());
+                Double maxPrice = (max_price_txt.getText().trim().isEmpty()) ? null : Double.parseDouble(max_price_txt.getText().trim());
+                String food = food_box.getValue();
+
+                TourRequest req = new TourRequest();
+                req.setCountry(country);
+                req.setStartDate(startDate);
+                req.setNights(nights);
+                req.setMinPrice(minPrice);
+                req.setMaxPrice(maxPrice);
+                req.setFood(food);
+
                 TourResponse resp = tourService.fetchTours(req);
                 if (resp.isSuccess()) {
                     return resp.getTours();
-                } else {
-                    throw new Exception(resp.getMessage());
-                }
+                } else throw new Exception(resp.getMessage());
             }
         };
         task.setOnSucceeded(event -> {
-            ObservableList<TourDTO> list = FXCollections.observableArrayList(task.getValue());
-            table_tours.setItems(list);
+            ObservableList<TourDTO> tours = FXCollections.observableArrayList(task.getValue());
+            table_tours.setItems(tours);
         });
         task.setOnFailed(event -> {
             Platform.runLater(() -> {AlertFactory.showErrorAlert(task.getException().getMessage()).showAndWait();});
