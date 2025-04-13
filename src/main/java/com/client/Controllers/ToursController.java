@@ -1,10 +1,9 @@
 package com.client.Controllers;
 
 import com.client.Service.TourService;
+import com.client.SessionHolder;
 import com.kurs.alerts.AlertFactory;
-import com.kurs.dto.TourDTO;
-import com.kurs.dto.TourRequest;
-import com.kurs.dto.TourResponse;
+import com.kurs.dto.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -81,8 +80,14 @@ public class ToursController implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             TourDTO tourDTO = getTableView().getItems().get(getIndex());
-                            AlertFactory.showInfoAlert("ЗАММЕНИТЬ ЭТОТ КОД НА ВЫЗОВ МЕТОДА БРОНИРОВАНИЯ");
-                            // bookTour(tour.getId());
+                            String sessionId = SessionHolder.getSessionId();
+                            BookTourRequest req = new BookTourRequest(tourDTO.getId(), sessionId);
+                            BookTourResponse resp = tourService.bookTour(req);
+                            if (resp.isSuccess()) {
+                                AlertFactory.showInfoAlert(resp.getMessage()).showAndWait();
+                            } else {
+                                AlertFactory.showErrorAlert(resp.getMessage()).showAndWait();
+                            }
                         });
                     }
 

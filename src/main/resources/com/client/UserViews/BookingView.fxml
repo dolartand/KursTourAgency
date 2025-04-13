@@ -8,12 +8,16 @@
 
 
 <AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.BookingController">
     <TableView fx:id="booking_table" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0"
                AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0">
       <columns>
-          <TableColumn prefWidth="75.0" text="C1"/>
-          <TableColumn prefWidth="75.0" text="C2"/>
+          <TableColumn fx:id="tourNameCol" text="Название тура" prefWidth="150"/>
+          <TableColumn fx:id="countryCol" text="Страна" prefWidth="100"/>
+          <TableColumn fx:id="cityCol" text="Город" prefWidth="100"/>
+          <TableColumn fx:id="dateCol" text="Дата" prefWidth="100"/>
+          <TableColumn fx:id="priceCol" text="Цена" prefWidth="80"/>
+          <TableColumn fx:id="bookingDateCol" text="Дата бронирования" prefWidth="120"/>
       </columns>
     </TableView>
     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Мои бронироавния" AnchorPane.topAnchor="20.0">
