@@ -12,15 +12,16 @@
     <TableView fx:id="booking_table" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0"
                AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0">
       <columns>
-          <TableColumn fx:id="tourNameCol" text="Название тура" prefWidth="150"/>
-          <TableColumn fx:id="countryCol" text="Страна" prefWidth="100"/>
-          <TableColumn fx:id="cityCol" text="Город" prefWidth="100"/>
-          <TableColumn fx:id="dateCol" text="Дата" prefWidth="100"/>
-          <TableColumn fx:id="priceCol" text="Цена" prefWidth="80"/>
-          <TableColumn fx:id="bookingDateCol" text="Дата бронирования" prefWidth="120"/>
+          <TableColumn fx:id="title_column" prefWidth="250.0" text="Название"/>
+          <TableColumn fx:id="country_column" text="Страна" prefWidth="100.0" />
+          <TableColumn fx:id="startDate_column" text="Дата начала" prefWidth="100.0" />
+          <TableColumn fx:id="nights_column" text="Ночей" prefWidth="60.0" />
+          <TableColumn fx:id="food_column" text="Питание" prefWidth="100.0" />
+          <TableColumn fx:id="price_column" text="Цена" prefWidth="80.0" />
+          <TableColumn fx:id="bookingDate_column" text="Дата бронирования" prefWidth="100.0"/>
       </columns>
     </TableView>
-    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Мои бронироавния" AnchorPane.topAnchor="20.0">
+    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Мои бронирования" AnchorPane.topAnchor="20.0">
         <font>
           <Font size="24.0"/>
         </font>
