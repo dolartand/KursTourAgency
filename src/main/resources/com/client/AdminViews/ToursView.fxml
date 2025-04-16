@@ -24,8 +24,14 @@
     <TableView fx:id="tours_table" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0"
                AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0">
       <columns>
-          <TableColumn prefWidth="75.0" text="C1"/>
-          <TableColumn prefWidth="75.0" text="C2"/>
+          <TableColumn fx:id="title_column" prefWidth="250.0" text="Название"/>
+          <TableColumn fx:id="description_column" prefWidth="250.0" text="Описание"/>
+          <TableColumn fx:id="country_column" text="Страна" prefWidth="100.0" />
+          <TableColumn fx:id="startDate_column" text="Дата начала" prefWidth="100.0" />
+          <TableColumn fx:id="nights_column" text="Ночей" prefWidth="60.0" />
+          <TableColumn fx:id="food_column" text="Питание" prefWidth="100.0" />
+          <TableColumn fx:id="price_column" text="Цена" prefWidth="80.0" />
+          <TableColumn fx:id="capacity_column" text="Количество человек" prefWidth="120.0" />
       </columns>
     </TableView>
 </AnchorPane>
