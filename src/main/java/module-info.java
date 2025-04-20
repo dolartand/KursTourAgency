@@ -3,6 +3,7 @@ module com.client {
     requires javafx.fxml;
     requires javafx.graphics;
     requires common;
+    requires java.desktop;
 
     opens com.client.Controllers to javafx.fxml;
     opens com.client.Admin.Controllers to javafx.fxml;

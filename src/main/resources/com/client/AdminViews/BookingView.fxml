@@ -22,8 +22,13 @@
                AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
                AnchorPane.topAnchor="150.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1"/>
-          <TableColumn prefWidth="75.0" text="C2"/>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50" />
+            <TableColumn fx:id="colUserId" text="User ID" prefWidth="80" />
+            <TableColumn fx:id="colUserName" text="Имя пользователя" prefWidth="150" />
+            <TableColumn fx:id="colTourId" text="Tour ID" prefWidth="80" />
+            <TableColumn fx:id="colTourName" text="Название тура" prefWidth="150" />
+            <TableColumn fx:id="colDate" text="Дата" prefWidth="120" />
+            <TableColumn fx:id="colStatus" text="Статус" prefWidth="100" />
         </columns>
     </TableView>
 </AnchorPane>
