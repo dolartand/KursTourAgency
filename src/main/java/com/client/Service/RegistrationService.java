@@ -1,5 +1,6 @@
 package com.client.Service;
 
+import com.client.AppConfig;
 import com.kurs.dto.LoginRequest;
 import com.kurs.dto.LoginResponse;
 import com.kurs.dto.RegistrationRequest;
@@ -11,12 +12,9 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class RegistrationService {
-    private static final String HOST = "127.0.0.1";
-    private static final int PORT = 11000;
-
     public RegistrationResponse registration(String name, String login, String password) throws IOException, ClassNotFoundException {
         try (
-                Socket socket = new Socket(HOST, PORT);
+                Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
                 ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
                 ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
         ) {

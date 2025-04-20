@@ -1,5 +1,6 @@
 package com.client.Service;
 
+import com.client.AppConfig;
 import com.kurs.dto.BookingRequest;
 import com.kurs.dto.BookingResponse;
 
@@ -8,11 +9,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class BookingService {
-    private static final String HOST = "127.0.0.1";
-    private static final int PORT = 11000;
-
     public BookingResponse fetchBookings(String sessionId) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 

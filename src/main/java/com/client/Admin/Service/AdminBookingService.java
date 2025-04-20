@@ -1,5 +1,6 @@
 package com.client.Admin.Service;
 
+import com.client.AppConfig;
 import com.kurs.dto.AdminDTOs.*;
 
 import javax.sound.sampled.Port;
@@ -9,11 +10,8 @@ import java.net.Socket;
 import java.util.List;
 
 public class AdminBookingService {
-    private static final String HOST = "127.0.0.1";
-    private static final int PORT = 11000;
-
     public List<AdminBookingDTO> fetchAll() {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
@@ -27,7 +25,7 @@ public class AdminBookingService {
     }
 
     public boolean approve(int bookingId) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
@@ -41,7 +39,7 @@ public class AdminBookingService {
     }
 
     public boolean reject(int bookingId) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 

@@ -68,7 +68,15 @@
                 <Insets top="60.0"/>
             </VBox.margin>
         </Button>
-        <Label fx:id="logIn_lbl" text="Уже есть аккаунт? Войти" onMouseClicked="#handleLogin" textFill="#0000ee" underline="true">
+        <Button text="Настройки сервера"
+                onAction="#handleHostConfig"
+                prefWidth="150.0">
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+        </Button>
+        <Label fx:id="logIn_lbl" text="Уже есть аккаунт? Войти" onMouseClicked="#handleLogin" textFill="#0000ee"
+               underline="true">
             <font>
                 <Font size="14.0"/>
             </font>

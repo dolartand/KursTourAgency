@@ -1,5 +1,6 @@
 package com.client.Admin.Service;
 
+import com.client.AppConfig;
 import com.kurs.dto.AdminDTOs.*;
 
 import java.io.ObjectInputStream;
@@ -8,11 +9,8 @@ import java.net.Socket;
 import java.util.List;
 
 public class AdminService {
-    private static final String HOST = "127.0.0.1";
-    private static final int PORT = 11000;
-
     public List<UserDTO> getUsers() {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
@@ -34,7 +32,7 @@ public class AdminService {
     }
 
     public boolean deleteUser(int userId) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
@@ -55,7 +53,7 @@ public class AdminService {
     }
 
     public boolean promoteToAdmin(int userId) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 

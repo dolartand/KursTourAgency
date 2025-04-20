@@ -1,5 +1,6 @@
 package com.client.Admin.Service;
 
+import com.client.AppConfig;
 import com.kurs.dto.AdminDTOs.*;
 import com.kurs.dto.TourDTO;
 import com.kurs.dto.TourRequest;
@@ -11,11 +12,8 @@ import java.net.Socket;
 import java.util.List;
 
 public class AdminTourService {
-    private static final String HOST = "127.0.0.1";
-    private static final int PORT = 11000;
-
     public List<TourDTO> fetchTours() {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
@@ -34,7 +32,7 @@ public class AdminTourService {
     }
 
     public AddTourResponse addTour(AddTourRequest req) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
@@ -52,7 +50,7 @@ public class AdminTourService {
     }
 
     public UpdateTourResponse updateTour(UpdateTourRequest req) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
         ) {
@@ -72,7 +70,7 @@ public class AdminTourService {
     }
 
     public DeleteTourResponse deleteTour(int tourId) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
         ) {

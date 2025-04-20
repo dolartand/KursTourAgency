@@ -1,5 +1,6 @@
 package com.client.Service;
 
+import com.client.AppConfig;
 import com.client.SessionHolder;
 import com.kurs.dto.ProfileRequest;
 import com.kurs.dto.ProfileResponse;
@@ -12,11 +13,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class ProfileService {
-    private static final String HOST = "127.0.0.1";
-    private static final int PORT = 11000;
-
     public ProfileResponse fetchProfile() {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
             ) {
@@ -35,7 +33,7 @@ public class ProfileService {
     }
 
     public ProfileResponse updateProfile(UserProfile profile) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
         ) {

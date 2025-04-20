@@ -67,6 +67,13 @@
                 <Insets top="60.0" />
             </VBox.margin>
         </Button>
+        <Button text="Настройки сервера"
+                onAction="#handleHostConfig"
+                prefWidth="150.0">
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+        </Button>
         <Label fx:id="registration_lbl" onMouseClicked="#handleRegistration" text="Ещё нет аккаунта? Зарегистрироваться" textFill="#0000ee" underline="true">
             <font>
                 <Font size="14.0" />

@@ -10,9 +10,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -109,5 +111,25 @@ public class RegistrationController {
 
     private String getPassword() {
         return password_txt.getText();
+    }
+
+    @FXML
+    private void handleHostConfig(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/client/UserViews/HostConfigView.fxml")
+            );
+            Parent root = loader.load();
+            Stage owner = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage cfgStage = new Stage();
+            cfgStage.setTitle("Настройки соединения");
+            cfgStage.initOwner(owner);
+            cfgStage.initModality(Modality.APPLICATION_MODAL);
+            cfgStage.setResizable(false);
+            cfgStage.setScene(new Scene(root));
+            cfgStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.client.Service;
 
+import com.client.AppConfig;
 import com.kurs.dto.BookTourRequest;
 import com.kurs.dto.BookTourResponse;
 import com.kurs.dto.TourRequest;
@@ -10,11 +11,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class TourService {
-    private static final String HOST = "127.0.0.1";
-    private static final int PORT = 11000;
-
     public TourResponse fetchTours(TourRequest req) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 
@@ -32,7 +30,7 @@ public class TourService {
     }
 
     public BookTourResponse bookTour(BookTourRequest req) {
-        try (Socket socket = new Socket(HOST, PORT);
+        try (Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
              ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream in = new ObjectInputStream(socket.getInputStream())) {
 

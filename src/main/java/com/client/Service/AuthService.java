@@ -1,5 +1,6 @@
 package com.client.Service;
 
+import com.client.AppConfig;
 import com.kurs.dto.LoginResponse;
 import com.kurs.dto.LoginRequest;
 
@@ -9,14 +10,11 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class AuthService {
-    private static final String HOST = "127.0.0.1";
-    private static final int PORT = 11000;
-
     public LoginResponse login(String login, String password, String role) throws IOException, ClassNotFoundException {
         try (
-             Socket socket = new Socket(HOST, PORT);
-             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-             ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
+                Socket socket = new Socket(AppConfig.getHost(), AppConfig.getPort());
+                ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream in = new ObjectInputStream(socket.getInputStream())
         ) {
             LoginRequest loginRequest = new LoginRequest(login, password, role);
             out.writeObject(loginRequest);
