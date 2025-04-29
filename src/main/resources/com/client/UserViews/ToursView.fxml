@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.ToursController">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" stylesheets="@../Style/styleTourView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.ToursController">
    <HBox layoutX="11.2" layoutY="71.2" prefHeight="90.0" prefWidth="579.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
       <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
          <HBox.margin>
@@ -25,7 +25,7 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <TextField fx:id="country_txt">
+         <TextField fx:id="country_txt" prefHeight="30.0" prefWidth="128.0">
             <font>
                <Font size="14.0" />
             </font>
@@ -83,7 +83,7 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <TextField fx:id="min_price_txt">
+         <TextField fx:id="min_price_txt" prefHeight="35.0" prefWidth="128.0">
             <font>
                <Font size="14.0" />
             </font>
@@ -98,13 +98,13 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <TextField fx:id="max_price_txt">
+         <TextField fx:id="max_price_txt" prefHeight="35.0" prefWidth="128.0">
             <font>
                <Font size="14.0" />
             </font>
          </TextField>
       </VBox>
-      <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
+      <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="130.0">
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
          </HBox.margin>
@@ -113,34 +113,33 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <ChoiceBox fx:id="food_box" prefWidth="150.0" />
+         <ChoiceBox fx:id="food_box" prefHeight="36.0" prefWidth="128.0" />
       </VBox>
-      <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="130.0">
+      <VBox alignment="CENTER_LEFT" prefHeight="87.0" prefWidth="126.0">
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
          </HBox.margin>
-         <Button fx:id="find_btn" mnemonicParsing="false" text="Найти туры" onAction="#findTours">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Button>
+         <children>
+            <Button fx:id="find_btn" mnemonicParsing="false" onAction="#findTours" prefHeight="58.0" prefWidth="126.0" text="Найти туры">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
       </VBox>
    </HBox>
    <TableView fx:id="table_tours" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="270.0">
       <columns>
-         <TableColumn fx:id="title_column" prefWidth="250.0" text="Название"/>
-         <TableColumn fx:id="country_column" text="Страна" prefWidth="100.0" />
-         <TableColumn fx:id="startDate_column" text="Дата начала" prefWidth="100.0" />
-         <TableColumn fx:id="nights_column" text="Ночей" prefWidth="60.0" />
-         <TableColumn fx:id="food_column" text="Питание" prefWidth="100.0" />
-         <TableColumn fx:id="price_column" text="Цена" prefWidth="80.0" />
-         <TableColumn fx:id="action_column" text="Действие" prefWidth="120.0" />
+         <TableColumn fx:id="title_column" prefWidth="250.0" text="Название" />
+         <TableColumn fx:id="country_column" prefWidth="100.0" text="Страна" />
+         <TableColumn fx:id="startDate_column" prefWidth="100.0" text="Дата начала" />
+         <TableColumn fx:id="nights_column" prefWidth="60.0" text="Ночей" />
+         <TableColumn fx:id="food_column" prefWidth="100.0" text="Питание" />
+         <TableColumn fx:id="price_column" prefWidth="80.0" text="Цена" />
+         <TableColumn fx:id="action_column" prefWidth="120.0" text="Действие" />
       </columns>
    </TableView>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Поиск туров" AnchorPane.topAnchor="10.0">
+   <Text layoutX="202.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Поиск туров" textAlignment="CENTER" wrappingWidth="196.25079345703125" AnchorPane.topAnchor="14.1015625">
       <font>
          <Font size="24.0" />
       </font>
