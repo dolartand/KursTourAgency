@@ -9,79 +9,74 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.RegistrationController">
-    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="20.0"
-          AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+<AnchorPane prefHeight="500.0" prefWidth="400.0" stylesheets="@../Style/styleLoginRegistration.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.RegistrationController">
+    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
         <Label text="Регистрация">
             <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
             </font>
             <VBox.margin>
-                <Insets/>
+                <Insets />
             </VBox.margin>
         </Label>
         <Label text="Имя">
             <font>
-                <Font size="14.0"/>
+                <Font size="14.0" />
             </font>
             <VBox.margin>
-                <Insets right="250.0" top="50.0"/>
+                <Insets right="250.0" top="50.0" />
             </VBox.margin>
         </Label>
         <TextField fx:id="name_txt">
             <VBox.margin>
-                <Insets left="20.0" right="20.0" top="5.0"/>
+                <Insets left="20.0" right="20.0" top="5.0" />
             </VBox.margin>
         </TextField>
         <Label text="Логин">
             <font>
-                <Font size="14.0"/>
+                <Font size="14.0" />
             </font>
             <VBox.margin>
-                <Insets left="5.0" right="250.0" top="15.0"/>
+                <Insets left="5.0" right="250.0" top="15.0" />
             </VBox.margin>
         </Label>
         <TextField fx:id="login_txt">
             <VBox.margin>
-                <Insets left="20.0" right="20.0" top="5.0"/>
+                <Insets left="20.0" right="20.0" top="5.0" />
             </VBox.margin>
         </TextField>
         <Label text="Пароль">
             <font>
-                <Font size="14.0"/>
+                <Font size="14.0" />
             </font>
             <VBox.margin>
-                <Insets left="10.0" right="250.0" top="15.0"/>
+                <Insets left="10.0" right="250.0" top="15.0" />
             </VBox.margin>
         </Label>
         <PasswordField fx:id="password_txt">
             <VBox.margin>
-                <Insets left="20.0" right="20.0" top="5.0"/>
+                <Insets left="20.0" right="20.0" top="5.0" />
             </VBox.margin>
         </PasswordField>
         <Button fx:id="singIn_btn" mnemonicParsing="false" onAction="#handleRegistration" text="Зарегистрироваться">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
             <VBox.margin>
-                <Insets top="60.0"/>
+                <Insets top="60.0" />
             </VBox.margin>
         </Button>
-        <Button text="Настройки сервера"
-                onAction="#handleHostConfig"
-                prefWidth="150.0">
+        <Button onAction="#handleHostConfig" prefHeight="36.0" prefWidth="167.0" text="Настройки сервера">
             <VBox.margin>
-                <Insets top="10.0"/>
+                <Insets top="10.0" />
             </VBox.margin>
         </Button>
-        <Label fx:id="logIn_lbl" text="Уже есть аккаунт? Войти" onMouseClicked="#handleLogin" textFill="#0000ee"
-               underline="true">
+        <Label fx:id="logIn_lbl" onMouseClicked="#handleLogin" text="Уже есть аккаунт? Войти" textFill="#0000ee" underline="true">
             <font>
-                <Font size="14.0"/>
+                <Font size="14.0" />
             </font>
             <VBox.margin>
-                <Insets top="20.0"/>
+                <Insets top="20.0" />
             </VBox.margin>
         </Label>
     </VBox>

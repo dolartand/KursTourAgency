@@ -7,28 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Admin.Controllers.BookingController">
-    <Label layoutX="10.0" layoutY="10.0" text="Управление бронированиями">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" stylesheets="@../Style/styleView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Admin.Controllers.BookingController">
+    <Label layoutX="134.0" layoutY="14.0" text="Управление бронированиями">
         <font>
-          <Font size="24.0"/>
+          <Font size="24.0" />
         </font>
     </Label>
-    <Button fx:id="approve_btn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleApprove"
-            text="Подтвердить" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0"/>
-    <Button fx:id="reject_btn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleReject"
-            text="Отклонить" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="80.0"/>
-    <TableView fx:id="bookings_table" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0"
-               AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
-               AnchorPane.topAnchor="150.0">
+    <Button fx:id="approve_btn" layoutX="10.4" layoutY="72.0" mnemonicParsing="false" onAction="#handleApprove" prefHeight="42.0" prefWidth="133.0" text="Подтвердить" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="72.0" />
+    <Button fx:id="reject_btn" layoutX="165.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleReject" prefHeight="42.0" prefWidth="134.0" text="Отклонить" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="72.0" />
+    <TableView fx:id="bookings_table" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0">
         <columns>
-            <TableColumn fx:id="colId" text="ID" prefWidth="50" />
-            <TableColumn fx:id="colUserId" text="User ID" prefWidth="80" />
-            <TableColumn fx:id="colUserName" text="Имя пользователя" prefWidth="150" />
-            <TableColumn fx:id="colTourId" text="Tour ID" prefWidth="80" />
-            <TableColumn fx:id="colTourName" text="Название тура" prefWidth="150" />
-            <TableColumn fx:id="colDate" text="Дата" prefWidth="120" />
-            <TableColumn fx:id="colStatus" text="Статус" prefWidth="100" />
+            <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+            <TableColumn fx:id="colUserId" prefWidth="80" text="User ID" />
+            <TableColumn fx:id="colUserName" prefWidth="150" text="Имя пользователя" />
+            <TableColumn fx:id="colTourId" prefWidth="80" text="Tour ID" />
+            <TableColumn fx:id="colTourName" prefWidth="150" text="Название тура" />
+            <TableColumn fx:id="colDate" prefWidth="120" text="Дата" />
+            <TableColumn fx:id="colStatus" prefWidth="100" text="Статус" />
         </columns>
     </TableView>
 </AnchorPane>

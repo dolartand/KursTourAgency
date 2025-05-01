@@ -10,124 +10,121 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-          nodeOrientation="LEFT_TO_RIGHT" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.ProfileController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="700.0" prefWidth="600.0" stylesheets="@../Style/styleTourView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.ProfileController">
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Профиль" GridPane.columnSpan="2">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Профиль" textAlignment="RIGHT" wrappingWidth="215.44451904296875" GridPane.columnSpan="2">
       <font>
-         <Font size="36.0"/>
+         <Font size="36.0" />
       </font>
    </Text>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" GridPane.rowIndex="1">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" textAlignment="RIGHT" wrappingWidth="215.44451904296875" GridPane.rowIndex="1">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
    </Text>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия" GridPane.rowIndex="2">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия" textAlignment="RIGHT" wrappingWidth="215.44451904296875" GridPane.rowIndex="2">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
    </Text>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Отчество" GridPane.rowIndex="3">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Отчество" textAlignment="RIGHT" wrappingWidth="215.44451904296875" GridPane.rowIndex="3">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
    </Text>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эл. почта" GridPane.rowIndex="4">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Эл. почта" textAlignment="RIGHT" wrappingWidth="215.44451904296875" GridPane.rowIndex="4">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
    </Text>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Телефон" GridPane.rowIndex="5">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Телефон" textAlignment="RIGHT" wrappingWidth="215.44451904296875" GridPane.rowIndex="5">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
    </Text>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Дата рождения" GridPane.rowIndex="6">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Дата рождения" textAlignment="RIGHT" wrappingWidth="215.44451904296875" GridPane.rowIndex="6">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
       <GridPane.margin>
-         <Insets/>
+         <Insets />
       </GridPane.margin>
    </Text>
    <TextField fx:id="name_txt" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
       <GridPane.margin>
-         <Insets left="10.0" right="10.0"/>
+         <Insets left="10.0" right="10.0" />
       </GridPane.margin>
    </TextField>
    <TextField fx:id="surname_txt" GridPane.columnIndex="1" GridPane.rowIndex="2">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
       <GridPane.margin>
-         <Insets left="10.0" right="10.0"/>
+         <Insets left="10.0" right="10.0" />
       </GridPane.margin>
    </TextField>
    <TextField fx:id="otch_txt" GridPane.columnIndex="1" GridPane.rowIndex="3">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
       <GridPane.margin>
-         <Insets left="10.0" right="10.0"/>
+         <Insets left="10.0" right="10.0" />
       </GridPane.margin>
    </TextField>
    <TextField fx:id="email_txt" GridPane.columnIndex="1" GridPane.rowIndex="4">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
       <GridPane.margin>
-         <Insets left="10.0" right="10.0"/>
+         <Insets left="10.0" right="10.0" />
       </GridPane.margin>
    </TextField>
-   <TextField fx:id="phoneNumber_txt" GridPane.columnIndex="1" GridPane.rowIndex="5">
+   <TextField fx:id="phoneNumber_txt" prefHeight="42.0" prefWidth="275.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
       <GridPane.margin>
-         <Insets left="10.0" right="10.0"/>
+         <Insets left="10.0" right="10.0" />
       </GridPane.margin>
    </TextField>
-   <Button fx:id="edit_btn" mnemonicParsing="false" onAction="#handleEdit" text="Редактировать" GridPane.rowIndex="7">
+   <Button fx:id="edit_btn" mnemonicParsing="false" onAction="#handleEdit" prefHeight="30.0" prefWidth="142.0" text="Редактировать" GridPane.rowIndex="7">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
       <GridPane.margin>
-         <Insets left="75.0"/>
+         <Insets left="75.0" />
       </GridPane.margin>
    </Button>
-   <Button fx:id="save_btn" mnemonicParsing="false" onAction="#handleSave" text="Сохранить" GridPane.columnIndex="1"
-           GridPane.rowIndex="7">
+   <Button fx:id="save_btn" mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="140.0" text="Сохранить" GridPane.columnIndex="1" GridPane.rowIndex="7">
       <font>
-         <Font size="18.0"/>
+         <Font size="18.0" />
       </font>
       <GridPane.margin>
-         <Insets left="75.0"/>
+         <Insets left="75.0" />
       </GridPane.margin>
    </Button>
-   <DatePicker fx:id="birthDate" GridPane.columnIndex="1" GridPane.rowIndex="6">
+   <DatePicker fx:id="birthDate" prefHeight="34.0" prefWidth="275.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
       <opaqueInsets>
-         <Insets/>
+         <Insets />
       </opaqueInsets>
       <GridPane.margin>
-         <Insets left="10.0" right="10.0"/>
+         <Insets left="10.0" right="10.0" />
       </GridPane.margin>
    </DatePicker>
 </GridPane>

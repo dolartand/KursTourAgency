@@ -6,24 +6,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Admin.Controllers.UsersController">
-    <Label layoutX="10.0" layoutY="10.0" text="Управление пользователями">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" stylesheets="@../Style/styleView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Admin.Controllers.UsersController">
+    <Label layoutX="140.0" layoutY="22.0" text="Управление пользователями">
         <font>
           <Font size="24.0" />
         </font>
     </Label>
     <TableView fx:id="users_table" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
         <columns>
-            <TableColumn fx:id="id_column" text="ID" prefWidth="50.0"/>
-            <TableColumn fx:id="name_column" text="Имя" prefWidth="100.0"/>
-            <TableColumn fx:id="first_name_column" text="Фамилия" prefWidth="100.0"/>
-            <TableColumn fx:id="surname_column" text="Отчество" prefWidth="100.0"/>
-            <TableColumn fx:id="email_column" text="Электронная почта" prefWidth="150.0"/>
-            <TableColumn fx:id="phone_column" text="Телефон" prefWidth="100.0"/>
-            <TableColumn fx:id="birth_date_column" text="Дата рождения" prefWidth="100.0"/>
-            <TableColumn fx:id="role_column" text="Роль" prefWidth="80.0"/>
-            <TableColumn fx:id="delete_column" text="Удалить" prefWidth="120.0"/>
-            <TableColumn fx:id="promote_column" text="Сделать администратором" prefWidth="180.0"/>
+            <TableColumn fx:id="id_column" prefWidth="50.0" text="ID" />
+            <TableColumn fx:id="name_column" prefWidth="100.0" text="Имя" />
+            <TableColumn fx:id="first_name_column" prefWidth="100.0" text="Фамилия" />
+            <TableColumn fx:id="surname_column" prefWidth="100.0" text="Отчество" />
+            <TableColumn fx:id="email_column" prefWidth="150.0" text="Электронная почта" />
+            <TableColumn fx:id="phone_column" prefWidth="100.0" text="Телефон" />
+            <TableColumn fx:id="birth_date_column" prefWidth="100.0" text="Дата рождения" />
+            <TableColumn fx:id="role_column" prefWidth="80.0" text="Роль" />
+            <TableColumn fx:id="delete_column" prefWidth="120.0" text="Удалить" />
+            <TableColumn fx:id="promote_column" prefWidth="180.0" text="Сделать администратором" />
         </columns>
     </TableView>
 </AnchorPane>

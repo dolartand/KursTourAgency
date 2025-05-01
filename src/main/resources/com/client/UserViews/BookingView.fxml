@@ -6,24 +6,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.BookingController">
-    <TableView fx:id="booking_table" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0"
-               AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" stylesheets="@../Style/styleView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Controllers.BookingController">
+    <TableView fx:id="booking_table" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="120.0">
       <columns>
-          <TableColumn fx:id="title_column" prefWidth="250.0" text="Название"/>
-          <TableColumn fx:id="country_column" text="Страна" prefWidth="100.0" />
-          <TableColumn fx:id="startDate_column" text="Дата начала" prefWidth="100.0" />
-          <TableColumn fx:id="nights_column" text="Ночей" prefWidth="60.0" />
-          <TableColumn fx:id="food_column" text="Питание" prefWidth="100.0" />
-          <TableColumn fx:id="price_column" text="Цена" prefWidth="80.0" />
-          <TableColumn fx:id="bookingDate_column" text="Дата бронирования" prefWidth="100.0"/>
+          <TableColumn fx:id="title_column" prefWidth="250.0" text="Название" />
+          <TableColumn fx:id="country_column" prefWidth="100.0" text="Страна" />
+          <TableColumn fx:id="startDate_column" prefWidth="100.0" text="Дата начала" />
+          <TableColumn fx:id="nights_column" prefWidth="60.0" text="Ночей" />
+          <TableColumn fx:id="food_column" prefWidth="100.0" text="Питание" />
+          <TableColumn fx:id="price_column" prefWidth="80.0" text="Цена" />
+          <TableColumn fx:id="bookingDate_column" prefWidth="100.0" text="Дата бронирования" />
       </columns>
     </TableView>
-    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Мои бронирования" AnchorPane.topAnchor="20.0">
+    <Text layoutX="188.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Мои бронирования" wrappingWidth="224.5648193359375" AnchorPane.topAnchor="38.1015625">
         <font>
-          <Font size="24.0"/>
+          <Font size="24.0" />
         </font>
     </Text>
 </AnchorPane>

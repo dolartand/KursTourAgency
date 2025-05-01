@@ -7,31 +7,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Admin.Controllers.ToursController">
-    <Label text="Управление турами" AnchorPane.topAnchor="10.0">
+<AnchorPane prefHeight="700.0" prefWidth="600.0" stylesheets="@../Style/styleTourView.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.Admin.Controllers.ToursController">
+    <Label layoutX="181.0" layoutY="26.0" text="Управление турами" AnchorPane.topAnchor="26.0">
         <font>
-          <Font size="24.0"/>
+          <Font size="24.0" />
         </font>
     </Label>
-    <Button fx:id="add_btn" mnemonicParsing="false" onAction="#handleAdd" text="Добавить тур"
-            AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0"/>
-    <Button fx:id="edit_btn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleEdit"
-            text="Редактировать тур" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="80.0"/>
-    <Button fx:id="delete_btn" layoutX="260.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleDelete"
-            text="Удалить тур" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="80.0"/>
-    <TableView fx:id="tours_table" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0"
-               AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0">
+    <Button fx:id="add_btn" mnemonicParsing="false" onAction="#handleAdd" text="Добавить тур" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+    <Button fx:id="edit_btn" layoutX="144.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="22.0" prefWidth="150.0" text="Редактировать тур" AnchorPane.leftAnchor="144.0" AnchorPane.topAnchor="80.0" />
+    <Button fx:id="delete_btn" layoutX="303.2" layoutY="80.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="22.0" prefWidth="102.0" text="Удалить тур" AnchorPane.leftAnchor="303.0" AnchorPane.topAnchor="80.0" />
+    <TableView fx:id="tours_table" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0">
       <columns>
-          <TableColumn fx:id="title_column" prefWidth="250.0" text="Название"/>
-          <TableColumn fx:id="description_column" prefWidth="250.0" text="Описание"/>
-          <TableColumn fx:id="country_column" text="Страна" prefWidth="100.0" />
-          <TableColumn fx:id="startDate_column" text="Дата начала" prefWidth="100.0" />
-          <TableColumn fx:id="nights_column" text="Ночей" prefWidth="60.0" />
-          <TableColumn fx:id="food_column" text="Питание" prefWidth="100.0" />
-          <TableColumn fx:id="price_column" text="Цена" prefWidth="80.0" />
-          <TableColumn fx:id="capacity_column" text="Количество человек" prefWidth="120.0" />
+          <TableColumn fx:id="title_column" prefWidth="250.0" text="Название" />
+          <TableColumn fx:id="description_column" prefWidth="250.0" text="Описание" />
+          <TableColumn fx:id="country_column" prefWidth="100.0" text="Страна" />
+          <TableColumn fx:id="startDate_column" prefWidth="100.0" text="Дата начала" />
+          <TableColumn fx:id="nights_column" prefWidth="60.0" text="Ночей" />
+          <TableColumn fx:id="food_column" prefWidth="100.0" text="Питание" />
+          <TableColumn fx:id="price_column" prefWidth="80.0" text="Цена" />
+          <TableColumn fx:id="capacity_column" prefWidth="120.0" text="Количество человек" />
       </columns>
     </TableView>
 </AnchorPane>
