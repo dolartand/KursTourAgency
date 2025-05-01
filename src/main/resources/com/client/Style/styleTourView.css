@@ -3,6 +3,11 @@
     -fx-font-family: "Open Sans", sans-serif;
     -fx-font-size: 14px;
 }
+
+#delete_btn {
+    -fx-background-color: linear-gradient(#DC143C,#AA1803);
+}
+
 .label{
     -fx-text-fill: #333333;
 }

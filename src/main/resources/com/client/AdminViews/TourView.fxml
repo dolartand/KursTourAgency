@@ -67,10 +67,13 @@
          <Font size="18.0" />
       </font>
    </Text>
-   <Button fx:id="save_btn" alignment="CENTER" mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="158.0" text="Сохранить" textAlignment="RIGHT" GridPane.columnSpan="2" GridPane.rowIndex="8">
+   <Button fx:id="save_btn" alignment="CENTER" mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="158.0" text="Сохранить" textAlignment="RIGHT" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8">
       <font>
          <Font size="18.0" />
       </font>
+      <GridPane.margin>
+         <Insets />
+      </GridPane.margin>
    </Button>
    <TextField fx:id="title_txt" GridPane.columnIndex="1">
       <font>

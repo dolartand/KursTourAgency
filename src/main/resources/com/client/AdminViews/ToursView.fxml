@@ -13,9 +13,9 @@
           <Font size="24.0" />
         </font>
     </Label>
-    <Button fx:id="add_btn" mnemonicParsing="false" onAction="#handleAdd" text="Добавить тур" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
-    <Button fx:id="edit_btn" layoutX="144.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="22.0" prefWidth="150.0" text="Редактировать тур" AnchorPane.leftAnchor="144.0" AnchorPane.topAnchor="80.0" />
-    <Button fx:id="delete_btn" layoutX="303.2" layoutY="80.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="22.0" prefWidth="102.0" text="Удалить тур" AnchorPane.leftAnchor="303.0" AnchorPane.topAnchor="80.0" />
+    <Button fx:id="add_btn" mnemonicParsing="false" onAction="#handleAdd" text="Добавить" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0" />
+    <Button fx:id="edit_btn" layoutX="150.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="22.0" prefWidth="150.0" text="Редактировать" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="80.0" />
+    <Button fx:id="delete_btn" layoutX="330.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="22.0" prefWidth="102.0" text="Удалить" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="80.0" />
     <TableView fx:id="tours_table" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0">
       <columns>
           <TableColumn fx:id="title_column" prefWidth="250.0" text="Название" />
