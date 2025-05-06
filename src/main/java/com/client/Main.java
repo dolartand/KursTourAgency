@@ -17,6 +17,7 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setResizable(false);
+            stage.setTitle("Авторизация");
             stage.show();
         }
         catch (IOException e) {

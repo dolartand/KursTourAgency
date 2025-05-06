@@ -58,6 +58,8 @@ public class LoginController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Registration.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.load()));
+            stage.setTitle("Регистрация");
+            stage.setResizable(false);
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -96,6 +98,8 @@ public class LoginController implements Initializable {
                     }
                     Stage stage = new Stage();
                     stage.setScene(new Scene(loader.load()));
+                    stage.setTitle("Турагенство");
+                    stage.setResizable(false);
                     stage.show();
 
                     Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

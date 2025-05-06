@@ -70,6 +70,7 @@ public class MainController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/client/UserViews/Login.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.load()));
+            stage.setResizable(false);
             stage.show();
 
             Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
